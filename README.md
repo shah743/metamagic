@@ -80,7 +80,7 @@ meta title: "My Title"
 In your layout:
 
 ```erb
-<%
+<%=
 metamagic site: "My Site", title: [:title, :site], separator: " — "
 %>
 ```
@@ -101,7 +101,7 @@ If you hadn't set the title in your view, it would just display the site name.
 You can also use a proc to enable custom processing:
 
 ```erb
-<%
+<%=
 metamagic site: "My Site", title: -> { title.include?(site) ? title : "#{title} — #{site}" }
 %>
 ```
@@ -122,7 +122,7 @@ end
 The proc is still needed in the layout to ensure the right context for the template:
 
 ```erb
-<%
+<%=
 metamagic site: "My Site", title: -> { meta_title_for(title, site) }
 %>
 ```
@@ -142,7 +142,7 @@ meta keywords: %{one two three}
 In your layout:
 
 ```erb
-<%
+<%=
 metamagic keywords: [:keywords, "four", "five", "six"]
 %>
 ```
